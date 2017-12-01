@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div th:if="${not #lists.isEmpty(donorList)}">
+    <h2>Search results</h2>
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Address</th>
+            <th>Birthdate</th>
+        </tr>
+        <tr th:each="donor : ${donorList}">
+            <td th:text="${donor.firstName}"></td>
+            <td th:text="${donor.lastName}"></td>
+            <td th:text="${donor.address}"></td>
+            <td th:text="*{#calendars.format(donor.birthDate, 'yyyy/MM/dd')}"></td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

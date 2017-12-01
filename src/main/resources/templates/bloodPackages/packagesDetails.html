@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h2>
+    Package details...
+</h2>
+<table th:object="${bloodPackage}">
+    <tr>
+        <th>Capacity</th>
+        <td th:text="*{capacityInLiters}"></td>
+    </tr>
+    <tr>
+        <th>Blood type</th>
+        <td th:text="*{bloodType}"></td>
+    </tr>
+    <tr>
+        <th>Shelf life</th>
+        <td th:text="*{#calendars.format(shelfLife, 'yyyy/MM/dd')}"></td>
+    </tr>
+    <tr>
+        <th>Date of acceptance</th>
+        <td th:text="*{#calendars.format(acceptanceDate, 'yyyy/MM/dd')}"></td>
+    </tr>
+</table>
+</body>
+</html>

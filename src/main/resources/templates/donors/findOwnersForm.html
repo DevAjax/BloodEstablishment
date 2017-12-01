@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h2>Donor</h2>
+<form th:object="${donor}" th:action="@{/donors}" class="form-horizontal" id="find-donor-form" method="get">
+    <div class="group - form feedback">
+        <td>Surname:</td>
+        <td><input type="text" id="lastName" name="lastName" th:value="*{lastName}"></input></td>
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Reset"/>
+    </div>
+</form>
+</body>
+</html>

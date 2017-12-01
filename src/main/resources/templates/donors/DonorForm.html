@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h2>Donor</h2>
+<form th:object="${donor}" class="form-horizontal" id="add-donor-form" method="post">
+    <div class="group - form feedback">
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><input type="text" id="firstName" name="firstName" th:value="*{firstName}"></input></td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td><input type="text" id="lastName" name="lastName" th:value="*{lastName}"></input></td>
+            </tr>
+            <tr>
+                <td>Birthdate</td>
+                <td><input type="date" id="birthDate" name="birthDate" th:value="${#dates.createNow()}"></input></td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td><input type="text" id="address" name="address" th:value="*{address}" th:field="*{address}"></input>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Reset"/>
+    </div>
+</form>
+</body>
+</html>

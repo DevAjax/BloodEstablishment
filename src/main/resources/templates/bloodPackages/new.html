@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h2>Blood Package</h2>
+<form th:object="${bloodPackage}" class="form-horizontal" id="add-donor-form" method="post">
+    <div class="group - form feedback">
+        <table>
+            <tr>
+                <label th:for="bloodType">Blood Type:</label>
+                <select class="form-control" th:field="*{{bloodType}}">
+                    <option th:each="bloodType : ${T(com.springbootapp.models.BloodType).values()}"
+                            th:value="${{bloodType}}"
+                            th:selected="${bloodType == T(com.springbootapp.models.BloodType)}"
+                            th:text="${bloodType.value}">
+                    </option>
+                </select>
+            </tr>
+            <tr>
+                <td>Capacity</td>
+                <td><input type="text" id="capacityInLiters" name="capacityInLiters" th:value="*{capacityInLiters}"
+                           th:field="*{capacityInLiters}"></input></td>
+            </tr>
+            <tr>
+                <td>acceptanceDate:</td>
+                <td><input type="date" id="acceptanceDate" name="acceptanceDate"
+                           th:value="${#dates.createNow()}"></input></td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td><input type="date" id="shelfLife" name="shelfLife" th:value="${#dates.createNow()}"></input></td>
+            </tr>
+
+
+        </table>
+
+
+    </div>
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="submit" value="Submit"/>
+        <input type="reset" value="Reset"/>
+    </div>
+</form>
+</body>
+</html>

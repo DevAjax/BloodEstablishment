@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+<h2>
+    Donor details...
+</h2>
+<table th:object="${donor}">
+    <tr>
+        <th>Name</th>
+        <td><b th:text="*{firstName}"></b></td>
+    </tr>
+    <tr>
+        <th>Surname</th>
+        <td><b th:text="*{lastName}"></b></td>
+    </tr>
+    <tr>
+        <th>Address</th>
+        <td th:text="*{address}"></td>
+    </tr>
+    <tr>
+        <th>Birtdate</th>
+        <td th:text="*{#calendars.format(birthDate, 'yyyy/MM/dd')}"></td>
+    </tr>
+</table>
+</body>
+</html>
